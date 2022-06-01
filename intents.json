@@ -8,18 +8,39 @@
         "How are you",
         "Is anyone there?",
         "Hello",
-        "Good day"
+        "Good day",
+        "Musta",
+        "Msta",
+        "Mzta na",
+        "Hello",
+        "Yo",
+        "kumusta",
+        "kamusta",
+        "Gudam",
+        "gud am",
+        "gud pm",
+        "gud morning",
+        "good morning",
+        "gud day",
+        "good day",
+        "hoy",
+        "gud evening",
+        "good evening"
+
+
       ],
       "responses": [
         "Hey :-)",
         "Hello, thanks for visiting",
         "Hi there, what can I do for you?",
-        "Hi there, how can I help?"
+        "Hi there, how can I help?",
+        "Magandang araw sa'yo!",
+        "Anong mapaglilingkod ko?"
       ]
     },
     {
       "tag": "goodbye",
-      "patterns": ["Bye", "See you later", "Goodbye"],
+      "patterns": ["Bye", "See you later", "Goodbye","babye",""],
       "responses": [
         "See you later, thanks for visiting",
         "Have a nice day",
@@ -28,56 +49,43 @@
     },
     {
       "tag": "thanks",
-      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!","salamat","slmat","slmt","salamt"],
       "responses": ["Happy to help!", "Any time!", "My pleasure"]
     },
     {
-      "tag": "items",
+      "tag": "positive",
       "patterns": [
-        "Which items do you have?",
-        "What kinds of items are there?",
-        "What do you sell?"
+        "marespeto",
+        "mabait",
+        "magalang",
+	"mabango",
+	"sakto lang",
+	""
       ],
       "responses": [
-        "We sell coffee and tea",
-        "We have coffee and tea"
+        "Sheesh!",
+        "We will continue to serve you with utmost responsibility and care"
       ]
     },
     {
-      "tag": "payments",
+      "tag": "negative",
       "patterns": [
-        "Do you take credit cards?",
-        "Do you accept Mastercard?",
-        "Can I pay with Paypal?",
-        "Are you cash only?"
+        "bastos",
+        "bs2s nyo",
+        "maskip n pinaupo pa",
+        "masikip n pinaupo pa",
+	"maskip na pinaupo pa",
+	"wla kau res7",
+	"wla kayo respeto",
+	"wala kau respitu",
+	"wala kayo respeto",
+	"wlang galang",
+	"wala",
+	""
       ],
       "responses": [
-        "We accept VISA, Mastercard and Paypal",
-        "We accept most major credit cards, and Paypal"
-      ]
-    },
-    {
-      "tag": "delivery",
-      "patterns": [
-        "How long does delivery take?",
-        "How long does shipping take?",
-        "When do I get my delivery?"
-      ],
-      "responses": [
-        "Delivery takes 2-4 days",
-        "Shipping takes 2-4 days"
-      ]
-    },
-    {
-      "tag": "funny",
-      "patterns": [
-        "Tell me a joke!",
-        "Tell me something funny!",
-        "Do you know a joke?"
-      ],
-      "responses": [
-        "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
-        "What did the buffalo say when his son left for college? Bison."
+        "We're sorry to hear that,",
+        ""
       ]
     }
   ]

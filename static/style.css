@@ -60,7 +60,15 @@ body {
     cursor: pointer;
 }
 
-
+.btn {
+  background-color: #F1F1F1;
+  float: right;
+  border: none;
+  color: black;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
 /* HEADER */
 .chatbox__header {
     position: sticky;
@@ -119,12 +127,14 @@ body {
 }
 
 .chatbox__image--header {
-    margin-right: 10px;
+    float: left;
+    margin-right: 15px;
 }
 
 .chatbox__heading--header {
     font-size: 1.2rem;
     color: white;
+    margin-right: 100px;
 }
 
 .chatbox__description--header {
