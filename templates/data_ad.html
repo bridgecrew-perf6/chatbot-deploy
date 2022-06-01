@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin Results</title>
+</head>
+<body>
+	<h1>Data View</h1>
+		<table border=1>
+			<thead>
+				<td>ID</td>
+				<td>Message</td>
+			</thead>
+
+			{% for row in rows %}
+				<tr>
+					<td>{{row["id"]}}</td>
+					<td>{{row["messages"]}}</td>
+				</tr>
+			{% endfor %}
+		</table>
+</body>
+</html>
