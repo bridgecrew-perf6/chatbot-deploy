@@ -19,9 +19,9 @@ mysql = MySQL(app)
 def index():
     return render_template("login.html")
 
-@app.route("/home")
+@app.route("/")
 def home():
-    return render_template('data_ad.html',username=session['username'])
+    return render_template('login.html',username=session['username'])
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -47,7 +47,7 @@ def select():
 
     rows=cur.fetchall()
     cur.close()
-    return render_template('data_ad.html', rows=rows)
+    return render_template("select.html", messages=rows)
 
                            
 if __name__ == "__main__":

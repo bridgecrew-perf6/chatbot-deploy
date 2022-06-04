@@ -21,16 +21,20 @@ def index_get():
 @app.route('/index', methods=['POST','GET'])
 def index():
     if request.method == 'POST':
-        messages = request.form['messages']
-        cursor = mysql.connection.cursor()
-        cursor.execute("INSERT INTO messages(messages) VALUES(%s)",[messages])
-        mysql.connection.commit()
-        cursor.close()
-    return render_template("base.html")
+        messages = request.get_json().get("message")
+        #cursor = mysql.connection.cursor()
+        #cursor.execute("INSERT INTO messages(messages) VALUES(%s)",[messages])
+        #mysql.connection.commit()
+        #cursor.close()
+    return jsonify( {"answer": "Inserted Successfully"})
 @app.post("/predict")
 def predict():
     text = request.get_json().get("message")
     response = get_response(text)
+    cursor = mysql.connection.cursor()
+    cursor.execute("INSERT INTO messages(messages, response) VALUES(%s, %s)",[text, response])
+    mysql.connection.commit()
+    cursor.close()
     message = {"answer": response}
     return jsonify(message)
     

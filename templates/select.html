@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="{{ url_for('static', filename='styleOne.css') }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ADMIN DATA</title>
+</head>
+<body>
+	<h1>Messages History</h1>
+		<table border=2>
+			<thead>
+				<th>ID</th>
+				<th>Message</th>
+				<th>Response</th>
+				<th>Date</th>
+			</thead>
+
+			{% for row in messages %}
+				<tr>
+					<td>{{row.0}}</td>
+					<td>{{row.1}}</td>
+					<td>{{row.2}}</td>
+					<td>{{row.3}}</td>
+				</tr>
+			{% endfor %}
+		</table>
+</body>
+</html>

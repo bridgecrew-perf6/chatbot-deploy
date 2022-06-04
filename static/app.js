@@ -17,7 +17,7 @@ class Chatbox {
 
         openButton.addEventListener('click', () => this.toggleState(chatBox))
 
-        sendButton.addEventListener('click', () => this.onSendButton(chatBox))
+        sendButton.addEventListener('click', (e) => this.onSendButton(chatBox,e))
 
         const node = chatBox.querySelector('input');
         node.addEventListener("keyup", ({key}) => {
@@ -42,7 +42,8 @@ class Chatbox {
         }
     }
 
-    onSendButton(chatbox) {
+    onSendButton(chatbox,e) {
+        e.preventDefault();
         var textField = chatbox.querySelector('input');
         let text1 = textField.value
         if (text1 === "") {
@@ -52,7 +53,7 @@ class Chatbox {
         let msg1 = { name: "User", message: text1 }
         this.messages.push(msg1);
 
-        fetch($SCRIPT_ROOT + '/predict', {
+        fetch($SCRIPT_ROOT + '/index', {
             method: 'POST',
             body: JSON.stringify({ message: text1 }),
             mode: 'cors',
@@ -62,16 +63,30 @@ class Chatbox {
           })
           .then(r => r.json())
           .then(r => {
-            let msg2 = { name: "Sam", message: r.answer };
-            this.messages.push(msg2);
-            this.updateChatText(chatbox)
-            textField.value = ''
+                fetch($SCRIPT_ROOT + '/predict', {
+                    method: 'POST',
+                    body: JSON.stringify({ message: text1 }),
+                    mode: 'cors',
+                    headers: {
+                    'Content-Type': 'application/json'
+                    },
+                })
+                .then(r => r.json())
+                .then(r => {
+                    let msg2 = { name: "Sam", message: r.answer };
+                    this.messages.push(msg2);
+                    this.updateChatText(chatbox)
+                    textField.value = ''
+        
+                }).catch((error) => {
+                    console.error('Error:', error);
+                    this.updateChatText(chatbox)
+                    textField.value = ''
+                });
 
-        }).catch((error) => {
-            console.error('Error:', error);
-            this.updateChatText(chatbox)
-            textField.value = ''
-          });
+          })
+
+        
     }
 
     updateChatText(chatbox) {
@@ -95,4 +110,3 @@ class Chatbox {
 
 const chatbox = new Chatbox();
 chatbox.display();
-
